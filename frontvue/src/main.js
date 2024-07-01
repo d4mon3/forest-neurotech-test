@@ -1,4 +1,9 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import axiosSetup from "./axios";
+import Plotly from "plotly.js-dist-min";
 
-createApp(App).mount('#app')
+const app = createApp(App);
+app.use(axiosSetup);
+app.config.globalProperties.$Plotly = Plotly;
+app.mount("#app");
