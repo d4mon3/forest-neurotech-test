@@ -1,30 +1,29 @@
 <template>
   <div id="app">
-    <div class="controls">
-      <div>
-        <label for="plot-type">Plot Type:</label>
-        <select v-model="plotType" @change="fetchPlot">
-          <option value="scatter">Scatter Plot</option>
-          <option value="histogram">Histogram</option>
-          <option value="barplot">Bar Plot</option>
-        </select>
-      </div>
-      <div>
-        <label for="flipper-length">Flipper Length:</label>
-        <input
-          type="range"
-          v-model="flipperLengthMin" :min="flipperLengthRange.min" :max="flipperLengthRange.max" @input="fetchPlot"
-        />
-        <span>{{ flipperLengthMin }} - {{ flipperLengthRange.max }} mm</span>
-      </div>
-      <div>
-        <label for="bodyMass">Body Mass:</label>
-        <input
-          type="range" id="bodyMass" v-model="bodyMassMin"
-          @input="fetchPlot" :min="bodyMassRange.min" :max="bodyMassRange.max"
-        />
-        <span>{{ bodyMassMin }} - {{ bodyMassRange.max }} kg</span>
-      </div>
+    <div>
+      <label for="plot-type">Plot Type:</label>
+      <select v-model="plotType" @change="fetchPlot">
+        <option value="scatter">Scatter Plot</option>
+        <option value="histogram">Histogram</option>
+        <option value="barplot">Bar Plot</option>
+
+      </select>
+    </div>
+    <div>
+      <label for="flipper-length">Flipper Length:</label>
+      <input
+        type="range"
+        v-model="flipperLengthMin" :min="flipperLengthRange.min" :max="flipperLengthRange.max" @input="fetchPlot"
+      />
+      <span>{{ flipperLengthMin }} - {{ flipperLengthRange.max }} mm</span>
+    </div>
+    <div>
+      <label for="bodyMass">Body Mass:</label>
+      <input
+        type="range" id="bodyMass" v-model="bodyMassMin"
+        @input="fetchPlot" :min="bodyMassRange.min" :max="bodyMassRange.max"
+      />
+      <span>{{ bodyMassMin }} - {{ bodyMassRange.max }} kg</span>
     </div>
     <div id="plot"></div>
   </div>
@@ -86,25 +85,19 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background-color: #ebeaea;
-  color: #424040;
+  background-color: #f0f0f0;
+  color: #333333;
   font-family: "Roboto", sans-serif;
 }
 
 #app {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   height: 100%;
   padding: 20px;
-  background-color: #eeebeb;
-}
-
-.controls {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-right: 20px;
+  background-color: #f0f0f0;
 }
 
 label {
@@ -116,20 +109,18 @@ label {
 select,
 input[type="range"] {
   background-color: #c0c0c0;
-  color: #0e0d0d;
+  color: #333333;
   border: none;
   padding: 10px;
-  padding-right: 10px;
   border-radius: 5px;
   margin-top: 5px;
-  margin-right: 5px;
 }
 
 input[type="range"] {
   -webkit-appearance: none;
-  width: 90%;
+  width: 100%;
   height: 5px;
-  background: #c3c3c4;
+  background: #d0d0d0;
   outline: none;
   opacity: 0.7;
   transition: opacity 0.2s;
@@ -156,7 +147,7 @@ input[type="range"]::-moz-range-thumb {
 #plot {
   width: 100%;
   height: 600px;
-  background-color: #f3f1f1;
-  padding: 10px;
+  background-color: #f0f0f0;
 }
 </style>
+
